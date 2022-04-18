@@ -18,7 +18,7 @@ defmodule DominicanDevelopersApi.Developers do
 
   """
   def list_developers do
-    Repo.all(Developer)
+    Repo.all(Developer, preload: [:skills])
   end
 
   @doc """

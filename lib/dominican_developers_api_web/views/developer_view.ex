@@ -1,6 +1,7 @@
 defmodule DominicanDevelopersApiWeb.DeveloperView do
   use DominicanDevelopersApiWeb, :view
   alias DominicanDevelopersApiWeb.DeveloperView
+  alias DominicanDevelopersApiWeb.SkillView
 
   def render("index.json", %{developers: developers}) do
     %{data: render_many(developers, DeveloperView, "developer.json")}
@@ -24,7 +25,8 @@ defmodule DominicanDevelopersApiWeb.DeveloperView do
       stackoverflow_url: developer.stackoverflow_url,
       twitter_url: developer.twitter_url,
       github_url: developer.github_url,
-      is_active: developer.is_active
+      is_active: developer.is_active,
+      skills: render_many(developer.skills, SkillView, "skill.json")
     }
   end
 end

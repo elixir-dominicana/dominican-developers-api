@@ -1,6 +1,7 @@
 defmodule DominicanDevelopersApi.Developers.Developer do
   use Ecto.Schema
   import Ecto.Changeset
+  alias DominicanDevelopersApi.Skills.Skill
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
@@ -17,6 +18,8 @@ defmodule DominicanDevelopersApi.Developers.Developer do
     field :twitter_url, :string
     field :website_url, :string
     field :is_active, :boolean
+
+    many_to_many(:skills, Skill, join_through: "developers_skills")
 
     timestamps()
   end
