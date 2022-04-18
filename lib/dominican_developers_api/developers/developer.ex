@@ -24,7 +24,33 @@ defmodule DominicanDevelopersApi.Developers.Developer do
   @doc false
   def changeset(developer, attrs) do
     developer
-    |> cast(attrs, [:first_name, :last_name, :initials, :login, :avatar, :bio, :website_url, :linkedin_url, :stackoverflow_url, :twitter_url, :github_url, :is_active])
-    |> validate_required([:first_name, :last_name, :initials, :login, :avatar, :bio, :website_url, :linkedin_url, :stackoverflow_url, :twitter_url, :github_url, :is_active])
+    |> cast(attrs, [
+      :first_name,
+      :last_name,
+      :initials,
+      :login,
+      :avatar,
+      :bio,
+      :website_url,
+      :linkedin_url,
+      :stackoverflow_url,
+      :twitter_url,
+      :github_url,
+      :is_active
+    ])
+    |> validate_required([
+      :first_name,
+      :last_name,
+      :initials,
+      :login,
+      :avatar,
+      :bio,
+      :website_url,
+      :linkedin_url,
+      :stackoverflow_url,
+      :twitter_url,
+      :github_url,
+      :is_active
+    ])
   end
 end

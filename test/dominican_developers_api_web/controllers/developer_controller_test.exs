@@ -35,7 +35,21 @@ defmodule DominicanDevelopersApiWeb.DeveloperControllerTest do
     updated_at: ~N[2022-04-18 14:50:00],
     website_url: "some updated website_url"
   }
-  @invalid_attrs %{avatar: nil, bio: nil, created_at: nil, deleted_at: nil, github_url: nil, id: nil, initials: nil, linkedin_url: nil, login: nil, stackoverflow_url: nil, twitter_url: nil, updated_at: nil, website_url: nil}
+  @invalid_attrs %{
+    avatar: nil,
+    bio: nil,
+    created_at: nil,
+    deleted_at: nil,
+    github_url: nil,
+    id: nil,
+    initials: nil,
+    linkedin_url: nil,
+    login: nil,
+    stackoverflow_url: nil,
+    twitter_url: nil,
+    updated_at: nil,
+    website_url: nil
+  }
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
@@ -82,7 +96,10 @@ defmodule DominicanDevelopersApiWeb.DeveloperControllerTest do
   describe "update developer" do
     setup [:create_developer]
 
-    test "renders developer when data is valid", %{conn: conn, developer: %Developer{id: id} = developer} do
+    test "renders developer when data is valid", %{
+      conn: conn,
+      developer: %Developer{id: id} = developer
+    } do
       conn = put(conn, Routes.developer_path(conn, :update, developer), developer: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

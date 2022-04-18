@@ -28,7 +28,8 @@ defmodule DominicanDevelopersApiWeb.DeveloperController do
   def update(conn, %{"id" => id, "developer" => developer_params}) do
     developer = Developers.get_developer!(id)
 
-    with {:ok, %Developer{} = developer} <- Developers.update_developer(developer, developer_params) do
+    with {:ok, %Developer{} = developer} <-
+           Developers.update_developer(developer, developer_params) do
       render(conn, "show.json", developer: developer)
     end
   end

@@ -8,7 +8,21 @@ defmodule DominicanDevelopersApi.DevelopersTest do
 
     import DominicanDevelopersApi.DevelopersFixtures
 
-    @invalid_attrs %{avatar: nil, bio: nil, created_at: nil, deleted_at: nil, github_url: nil, id: nil, initials: nil, linkedin_url: nil, login: nil, stackoverflow_url: nil, twitter_url: nil, updated_at: nil, website_url: nil}
+    @invalid_attrs %{
+      avatar: nil,
+      bio: nil,
+      created_at: nil,
+      deleted_at: nil,
+      github_url: nil,
+      id: nil,
+      initials: nil,
+      linkedin_url: nil,
+      login: nil,
+      stackoverflow_url: nil,
+      twitter_url: nil,
+      updated_at: nil,
+      website_url: nil
+    }
 
     test "list_developers/0 returns all developers" do
       developer = developer_fixture()
@@ -21,7 +35,21 @@ defmodule DominicanDevelopersApi.DevelopersTest do
     end
 
     test "create_developer/1 with valid data creates a developer" do
-      valid_attrs = %{avatar: "some avatar", bio: "some bio", created_at: ~N[2022-04-17 14:50:00], deleted_at: ~N[2022-04-17 14:50:00], github_url: "some github_url", id: "7488a646-e31f-11e4-aace-600308960662", initials: "some initials", linkedin_url: "some linkedin_url", login: "some login", stackoverflow_url: "some stackoverflow_url", twitter_url: "some twitter_url", updated_at: ~N[2022-04-17 14:50:00], website_url: "some website_url"}
+      valid_attrs = %{
+        avatar: "some avatar",
+        bio: "some bio",
+        created_at: ~N[2022-04-17 14:50:00],
+        deleted_at: ~N[2022-04-17 14:50:00],
+        github_url: "some github_url",
+        id: "7488a646-e31f-11e4-aace-600308960662",
+        initials: "some initials",
+        linkedin_url: "some linkedin_url",
+        login: "some login",
+        stackoverflow_url: "some stackoverflow_url",
+        twitter_url: "some twitter_url",
+        updated_at: ~N[2022-04-17 14:50:00],
+        website_url: "some website_url"
+      }
 
       assert {:ok, %Developer{} = developer} = Developers.create_developer(valid_attrs)
       assert developer.avatar == "some avatar"
@@ -45,9 +73,26 @@ defmodule DominicanDevelopersApi.DevelopersTest do
 
     test "update_developer/2 with valid data updates the developer" do
       developer = developer_fixture()
-      update_attrs = %{avatar: "some updated avatar", bio: "some updated bio", created_at: ~N[2022-04-18 14:50:00], deleted_at: ~N[2022-04-18 14:50:00], github_url: "some updated github_url", id: "7488a646-e31f-11e4-aace-600308960668", initials: "some updated initials", linkedin_url: "some updated linkedin_url", login: "some updated login", stackoverflow_url: "some updated stackoverflow_url", twitter_url: "some updated twitter_url", updated_at: ~N[2022-04-18 14:50:00], website_url: "some updated website_url"}
 
-      assert {:ok, %Developer{} = developer} = Developers.update_developer(developer, update_attrs)
+      update_attrs = %{
+        avatar: "some updated avatar",
+        bio: "some updated bio",
+        created_at: ~N[2022-04-18 14:50:00],
+        deleted_at: ~N[2022-04-18 14:50:00],
+        github_url: "some updated github_url",
+        id: "7488a646-e31f-11e4-aace-600308960668",
+        initials: "some updated initials",
+        linkedin_url: "some updated linkedin_url",
+        login: "some updated login",
+        stackoverflow_url: "some updated stackoverflow_url",
+        twitter_url: "some updated twitter_url",
+        updated_at: ~N[2022-04-18 14:50:00],
+        website_url: "some updated website_url"
+      }
+
+      assert {:ok, %Developer{} = developer} =
+               Developers.update_developer(developer, update_attrs)
+
       assert developer.avatar == "some updated avatar"
       assert developer.bio == "some updated bio"
       assert developer.created_at == ~N[2022-04-18 14:50:00]
