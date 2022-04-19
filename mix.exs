@@ -43,7 +43,8 @@ defmodule DominicanDevelopersApi.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:httpoison, "~> 1.8"}
+      {:httpoison, "~> 1.8"},
+      {:nimble_csv, "~> 1.2"}
     ]
   end
 
