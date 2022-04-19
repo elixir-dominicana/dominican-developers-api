@@ -33,8 +33,6 @@ defmodule Mix.Tasks.Developers.Info do
       "stackoverflow_url"
     ])
     |> CSV.create_csv("./priv/repo/seeders/developers.csv")
-
-    # |> IO.inspect()
   end
 
   defp get_data() do
